@@ -53,6 +53,8 @@ func movement():
 	
 	if in_dash == true:
 		speed = 5000
+		if Input.is_action_pressed("Up"):
+			velocity.y -= 1000
 	
 	velocity.x = xvel * speed
 	
@@ -125,6 +127,7 @@ func action(direction):
 
 
 func _physics_process(delta):
+
 	if dead == false:
 		action(aiming())
 		
@@ -178,4 +181,5 @@ func _on_dash_timer_timeout():
 
 func _on_dash_duration_timeout():
 	in_dash = false
+	velocity.y = 0
 	pass # Replace with function body.
