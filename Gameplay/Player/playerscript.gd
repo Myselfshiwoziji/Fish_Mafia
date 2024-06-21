@@ -15,7 +15,8 @@ var spawn_location = Vector2.ZERO
 @export var projectile_scene : PackedScene
 
 var glock_loaded = true
-var dash = true
+var dash = false
+var in_dash = false
 var true_direction = 90
 var speedbase = 500
 
@@ -44,13 +45,14 @@ func movement():
 		xvel += 1
 		direction.x += 1
 	
-	if Input.is_action_just_pressed("Dash") && dash == true:
-		xvel = xvel * 30
-		if Input.is_action_pressed("Up"):
-			velocity.y = -abs(velocity.y * 2)
-		dash = false
+	if Input.is_action_just_pressed("Dash") && dash == false:
+		dash = true
+		in_dash = true;
+		$DashDuration.start()
 		$DashTimer.start()
-
+	
+	if in_dash == true:
+		speed = 5000
 	
 	velocity.x = xvel * speed
 	
@@ -171,4 +173,9 @@ func _on_glock_cd_timeout():
 
 
 func _on_dash_timer_timeout():
-	dash = true
+	dash = false
+
+
+func _on_dash_duration_timeout():
+	in_dash = false
+	pass # Replace with function body.
