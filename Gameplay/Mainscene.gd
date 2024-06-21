@@ -19,6 +19,8 @@ func _ready():
 	get_tree().paused = false
 	
 	$BubbleSpawnTimer.start()
+	
+	print("The program is ready")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
