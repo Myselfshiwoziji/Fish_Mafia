@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5tc51ws6hdsn"]
+
+[ext_resource type="Script" path="res://Menus/MainMenu/MainMenu.gd" id="1_1hho7"]
+[ext_resource type="Texture2D" uid="uid://ch22iocfbkhp5" path="res://Assets/Main_menu_background.jpg" id="1_w7u52"]
+[ext_resource type="AudioStream" uid="uid://eydpqih05l0x" path="res://Music/REDASH _ the redhood mog ver. [GODDESS OF VICTORY_ NIKKE OST].mp3" id="3_eefb6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1hho7")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.43712, 0.43712, 0.43712, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w7u52")
+
+[node name="ButtonsBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -179.5
+offset_right = 292.0
+offset_bottom = 357.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGame" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="Quit" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Quit
+"
+
+[node name="MainTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -532.0
+offset_top = -601.5
+offset_right = 532.0
+offset_bottom = -328.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 200
+text = "Fishy Bishy"
+
+[node name="Intromusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_eefb6")
+volume_db = -4.0
+autoplay = true
+
+[connection signal="pressed" from="ButtonsBox/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="ButtonsBox/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ButtonsBox/Quit" to="." method="_on_quit_pressed"]

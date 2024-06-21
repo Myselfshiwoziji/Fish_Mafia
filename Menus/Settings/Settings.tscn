@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://265cd2afv75u"]
+
+[ext_resource type="Script" path="res://Menus/Settings/Settings.gd" id="1_sj7dt"]
+[ext_resource type="Texture2D" uid="uid://ch22iocfbkhp5" path="res://Assets/Main_menu_background.jpg" id="2_6on8g"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sj7dt")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.43712, 0.43712, 0.43712, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6on8g")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 21.0
+offset_right = 140.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 50
+text = "Back
+"
+
+[node name="Volume" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -443.0
+offset_top = -23.0
+offset_right = 443.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

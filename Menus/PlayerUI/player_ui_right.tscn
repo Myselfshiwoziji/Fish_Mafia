@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5j5j3hwfo61t"]
+
+[ext_resource type="Script" path="res://Menus/PlayerUI/player_ui_right.gd" id="1_mpddb"]
+[ext_resource type="Texture2D" uid="uid://bca71nrl57kf0" path="res://Assets/fish1.png" id="2_2xcih"]
+
+[node name="PlayerUiRight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mpddb")
+
+[node name="HPBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -786.0
+offset_top = 16.0
+offset_right = -18.0
+offset_bottom = 86.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+fill_mode = 1
+
+[node name="BubbleBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -658.0
+offset_top = 88.0
+offset_right = -18.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+max_value = 5.0
+fill_mode = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -450.0
+offset_top = 128.0
+offset_right = -18.0
+offset_bottom = 192.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 45
+text = "Score"
+horizontal_alignment = 2
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -906.0
+offset_top = 16.0
+offset_right = -802.0
+offset_bottom = 120.0
+grow_horizontal = 0
+texture = ExtResource("2_2xcih")
+flip_h = true
+
+[node name="P2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -759.0
+offset_top = 85.0
+offset_right = -666.0
+offset_bottom = 119.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "Player 2
+"

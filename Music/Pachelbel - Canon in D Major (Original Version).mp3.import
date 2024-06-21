@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7ng2yu2522ov"
+path="res://.godot/imported/Pachelbel - Canon in D Major (Original Version).mp3-5ecb20ee02386aac4cf6790506981ae9.mp3str"
+
+[deps]
+
+source_file="res://Music/Pachelbel - Canon in D Major (Original Version).mp3"
+dest_files=["res://.godot/imported/Pachelbel - Canon in D Major (Original Version).mp3-5ecb20ee02386aac4cf6790506981ae9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

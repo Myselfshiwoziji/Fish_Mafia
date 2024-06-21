@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdt5rb0x4w08o"]
+
+[ext_resource type="Script" path="res://Menus/PlayerUI/player_ui.gd" id="1_0u34t"]
+[ext_resource type="Texture2D" uid="uid://bca71nrl57kf0" path="res://Assets/fish1.png" id="2_av4mt"]
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0u34t")
+
+[node name="HPBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 784.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 36
+
+[node name="BubbleBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 88.0
+offset_right = 656.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 20
+max_value = 5.0
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 128.0
+offset_right = 448.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 45
+text = "Score"
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 16.0
+offset_right = 904.0
+offset_bottom = 120.0
+texture = ExtResource("2_av4mt")
+
+[node name="P1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 88.0
+offset_right = 757.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 24
+text = "Player 1
+"
