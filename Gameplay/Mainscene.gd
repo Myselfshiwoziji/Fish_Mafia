@@ -19,6 +19,10 @@ func _ready():
 	get_tree().paused = false
 	
 	$BubbleSpawnTimer.start()
+	
+	$Camera.add_target($Player);
+	$Camera.add_target($Player2)
+	$Camera.add_target($Stage)
 
 
 
