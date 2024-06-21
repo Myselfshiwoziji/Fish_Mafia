@@ -54,7 +54,7 @@ func movement():
 	if in_dash == true:
 		speed = 5000
 		if Input.is_action_pressed("Up"):
-			velocity.y -= 1000
+			velocity.y -= 2500
 	
 	velocity.x = xvel * speed
 	
