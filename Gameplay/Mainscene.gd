@@ -21,10 +21,13 @@ func _ready():
 	$BubbleSpawnTimer.start()
 
 
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	Global.time_left = $GameTimer.time_left
 	$Time.text = "Time remaning: " + str(round($GameTimer.time_left))
+
 
 
 func _on_bubble_spawn_timer_timeout():
