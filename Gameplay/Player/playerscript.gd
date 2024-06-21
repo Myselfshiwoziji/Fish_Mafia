@@ -6,6 +6,7 @@ signal hit
 @export var respawntime = 3
 @export var projectile_speed = 500
 
+
 var screen_size 
 var frames_since_grounded = 0
 var in_damage = false
