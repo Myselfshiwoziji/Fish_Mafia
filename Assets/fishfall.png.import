@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqn5b57fqwv62"
-path="res://.godot/imported/CO2 Bubble.png-2624bfaaeb6c9b1a7c87b2180130209f.ctex"
+uid="uid://ow7pw0m1ck7t"
+path="res://.godot/imported/fishfall.png-8dd0130f115462882b19b8f927a147bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gameplay/CO2 Bubble.png"
-dest_files=["res://.godot/imported/CO2 Bubble.png-2624bfaaeb6c9b1a7c87b2180130209f.ctex"]
+source_file="res://Assets/fishfall.png"
+dest_files=["res://.godot/imported/fishfall.png-8dd0130f115462882b19b8f927a147bb.ctex"]
 
 [params]
 
