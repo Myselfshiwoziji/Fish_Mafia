@@ -113,12 +113,15 @@ func action(direction):
 		glock_loaded = false
 		
 		var projectile = projectile_scene.instantiate();
-		var projectile_spawn = self.global_position
+		var projectile_spawn = self.position
 		projectile.position = projectile_spawn
 		projectile.current_owner = 1
 		var projectile_rotation = -1 * direction.angle_to_point(Vector2(0,0))
 		projectile.rotate(projectile_rotation)
 		get_parent().add_child(projectile)
+		
+		print(projectile.position)
+		print(self.position)
 		
 		$Gun.play("Shoot")
 		
