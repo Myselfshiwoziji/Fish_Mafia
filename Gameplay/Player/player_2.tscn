@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Gameplay/Player/playerscript2.gd" id="1_q2eco"]
 [ext_resource type="PackedScene" uid="uid://b6qwovm5f2f3o" path="res://Gameplay/Projectile/projectile.tscn" id="2_q5fhe"]
 [ext_resource type="Texture2D" uid="uid://bca71nrl57kf0" path="res://Assets/fish1.png" id="3_jibfh"]
-[ext_resource type="Texture2D" uid="uid://ow7pw0m1ck7t" path="res://Music/fishfall.png" id="4_7vuno"]
+[ext_resource type="Texture2D" uid="uid://ow7pw0m1ck7t" path="res://Assets/fishfall.png" id="4_a1a3c"]
 [ext_resource type="Texture2D" uid="uid://gyo4iqlnb18s" path="res://Assets/FishWalk.png" id="4_g8rwi"]
 [ext_resource type="Texture2D" uid="uid://dhwin0srui52j" path="res://Assets/GlockShoot.png" id="5_w4fh2"]
 
@@ -49,7 +49,7 @@ region = Rect2(224, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_7vuno")
+"texture": ExtResource("4_a1a3c")
 }],
 "loop": true,
 "name": &"Fall",
