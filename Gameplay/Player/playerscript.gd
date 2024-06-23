@@ -120,9 +120,6 @@ func action(direction):
 		projectile.rotate(projectile_rotation)
 		get_parent().add_child(projectile)
 		
-		print(projectile.position)
-		print(self.position)
-		
 		$Gun.play("Shoot")
 		
 		$GlockCD.start()
@@ -155,6 +152,9 @@ func _physics_process(delta):
 			
 			Global.p1_invunerable = false
 
+func _input(event):
+	if event is InputEventJoypadButton || event is InputEventJoypadMotion:
+		print(event.device)
 
 func _on_hitbox_body_entered(body):
 	in_damage = true
