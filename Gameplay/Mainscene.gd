@@ -37,7 +37,7 @@ func _process(delta):
 func _on_bubble_spawn_timer_timeout():
 	spawn_bubble(1)
 	spawn_bubble(2)
-	spawn_bubble(2)
+	spawn_bubble(3)
 	$BubbleSpawnTimer.wait_time = randf_range(3, 8) 
 	$BubbleSpawnTimer.start()
 
