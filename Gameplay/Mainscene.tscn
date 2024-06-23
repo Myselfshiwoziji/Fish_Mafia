@@ -38,7 +38,7 @@ position = Vector2(3450, 1912)
 position = Vector2(212, 2078)
 
 [node name="Bubble3" type="Marker2D" parent="."]
-position = Vector2(2864, 232)
+position = Vector2(2169, 232)
 
 [node name="Seaweed" parent="." instance=ExtResource("6_j1pon")]
 position = Vector2(2329, 1430)
