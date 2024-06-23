@@ -21,7 +21,7 @@ func _ready():
 	$BubbleSpawnTimer.start()
 	
 	$Camera.add_target($Player);
-	$Camera.add_target($Player2)
+
 	$Camera.add_target($Stage)
 
 
