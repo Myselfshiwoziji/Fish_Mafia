@@ -56,6 +56,7 @@ func _on_join_pressed():
 	peer.create_client("localhost", 127)
 	multiplayer.multiplayer_peer = peer;
 
+
 func _on_host_pressed():
 	peer.create_server(127)
 	multiplayer.multiplayer_peer = peer
