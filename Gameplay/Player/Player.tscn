@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cvxl2g0i4f70"]
+[gd_scene load_steps=26 format=3 uid="uid://cvxl2g0i4f70"]
 
 [ext_resource type="Script" path="res://Gameplay/Player/playerscript.gd" id="1_37mwt"]
 [ext_resource type="PackedScene" uid="uid://b6qwovm5f2f3o" path="res://Gameplay/Projectile/projectile.tscn" id="2_830mt"]
@@ -148,6 +148,11 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_nduhe"]
+properties/0/path = NodePath("..:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_37mwt")
@@ -201,6 +206,9 @@ one_shot = true
 [node name="DashDuration" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_nduhe")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

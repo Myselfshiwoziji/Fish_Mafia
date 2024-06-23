@@ -26,6 +26,10 @@ func _ready():
 	spawn_location = self.global_position
 	
 
+func _enter_tree():
+	#Multiplayer stuff
+	set_multiplayer_authority(name.to_int())
+
 func movement():
 	var direction := Vector2.ZERO
 	velocity.y += 30
@@ -127,8 +131,7 @@ func action(direction):
 
 
 func _physics_process(delta):
-
-	if dead == false:
+	if dead == false && is_multiplayer_authority():
 		action(aiming())
 		
 		movement()
@@ -151,6 +154,7 @@ func _physics_process(delta):
 			await(get_tree().create_timer(2).timeout)
 			
 			Global.p1_invunerable = false
+	
 
 func _on_hitbox_body_entered(body):
 	in_damage = true
