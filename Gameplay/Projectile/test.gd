@@ -27,7 +27,10 @@ func _on_body_entered(body):
 			Global.p2_player_hp -= 40
 			queue_free()
 	
-	if body.name == "Player" and current_owner == 2:
-		if Global.p1_invunerable == false:
-			Global.p1_player_hp -= 40
-			queue_free()
+	if str(body.name) != str(current_owner):
+		print("hi")
+		queue_free()
+		pass;
+		
+	
+

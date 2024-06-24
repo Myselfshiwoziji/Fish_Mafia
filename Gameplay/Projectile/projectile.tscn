@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6qwovm5f2f3o"]
+[gd_scene load_steps=6 format=3 uid="uid://b6qwovm5f2f3o"]
 
 [ext_resource type="Script" path="res://Gameplay/Projectile/test.gd" id="1_3aro1"]
 [ext_resource type="Texture2D" uid="uid://b6jfiwv4roawp" path="res://Assets/bullet.png" id="2_n4l6c"]
@@ -6,6 +6,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txvap"]
 size = Vector2(31.75, 23)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_rro6g"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="projectile" type="Area2D"]
 position = Vector2(1000, 1000)
@@ -29,5 +34,8 @@ shape = SubResource("RectangleShape2D_txvap")
 stream = ExtResource("3_bwsp7")
 volume_db = 2.0
 autoplay = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_rro6g")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
