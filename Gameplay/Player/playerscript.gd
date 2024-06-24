@@ -6,6 +6,12 @@ signal hit
 @export var respawntime = 3
 @export var projectile_speed = 500
 
+#Player data
+@export var player_hp = 100
+@export var bubbles = 0
+@export var score = 0
+@export var invunerable = false
+
 
 var screen_size 
 var frames_since_grounded = 0
@@ -24,6 +30,13 @@ func _ready():
 	screen_size = get_viewport_rect().size;
 	get_tree().call_group("projectile", "queue_free")
 	spawn_location = self.global_position
+	
+	#PLayer data
+	var player_hp = 100
+	var bubbles = 0
+	var score = 0
+	var invunerable = false
+	pass;
 	
 
 func _enter_tree():
@@ -119,7 +132,7 @@ func action(direction):
 		var projectile = projectile_scene.instantiate();
 		var projectile_spawn = self.position
 		projectile.position = projectile_spawn
-		projectile.current_owner = 1
+		projectile.current_owner = self.name
 		var projectile_rotation = -1 * direction.angle_to_point(Vector2(0,0))
 		projectile.rotate(projectile_rotation)
 		get_parent().add_child(projectile)
@@ -133,9 +146,7 @@ func action(direction):
 func _physics_process(delta):
 	if dead == false && is_multiplayer_authority():
 		action(aiming())
-		
 		movement()
-		
 		move_and_slide()
 		
 		if Global.p1_player_hp <= 0:
