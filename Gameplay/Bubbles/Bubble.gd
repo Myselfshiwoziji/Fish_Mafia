@@ -20,6 +20,6 @@ func _ready():
 	
 
 func _on_hitbox_body_entered(body):
-	if body.name.to_int() > 0 && Global.Players[body.name.to_int()]["bubbles"] < 5:
+	if body.name.to_int() > 0 && Global.Players[body.name.to_int()]["bubbles"] <= 5:
 			Global.Players[body.name.to_int()]["bubbles"] += 1
 			queue_free()
