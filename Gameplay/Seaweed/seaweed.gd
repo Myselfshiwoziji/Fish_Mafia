@@ -12,10 +12,7 @@ func _process(delta):
 
 
 func _on_hitbox_body_entered(body):
-	if body.name == "Player" and not Global.p1_player_bubbles == 0:
-		Global.p1_player_score += Global.p1_player_bubbles * 2
-		Global.p1_player_bubbles = 0
-	
-	if body.name == "Player2" and not Global.p2_player_bubbles == 0:
-		Global.p2_player_score += Global.p2_player_bubbles * 2
-		Global.p2_player_bubbles = 0
+	if body.name.to_int() > 1 and not Global.Players[body.name.to_int()]["bubbles"] == 0:
+		print("HI")
+		Global.Players[body.name.to_int()]["score"] += Global.Players[body.name.to_int()]["bubbles"] * 2
+		Global.Global.Players[body.name.to_int()]["bubbles"] = 0

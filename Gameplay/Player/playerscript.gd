@@ -31,17 +31,9 @@ func _ready():
 	get_tree().call_group("projectile", "queue_free")
 	spawn_location = self.global_position
 	
-	#PLayer data
-	var player_hp = 100
-	var bubbles = 0
-	var score = 0
-	var invunerable = false
+	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())
 	pass;
 	
-
-func _enter_tree():
-	#Multiplayer stuff
-	set_multiplayer_authority(name.to_int())
 
 func movement():
 	var direction := Vector2.ZERO
@@ -97,7 +89,7 @@ func movement():
 	else:
 		$Animation.play("Fall")
 	
-	speed = speedbase - (Global.p1_player_bubbles * 20)
+	#speed = speedbase - (Global.p1_player_bubbles * 20)
 	
 	
 
@@ -141,37 +133,36 @@ func action(direction):
 		
 		$GlockCD.start()
 
-
+func GlobalValue(value):
+	return Global.Players[self.name.to_int()][value]
 
 func _physics_process(delta):
-	if dead == false && is_multiplayer_authority():
+	if dead == false && $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
 		action(aiming())
 		movement()
 		move_and_slide()
 		
-		if Global.p1_player_hp <= 0:
+		if GlobalValue("hp") <= 0:
 			self.visible = false
 			dead = true
-			Global.p1_invunerable = true
-			
+			Global.Players[self.name.to_int()]["invulnerable"] = true
 			await(get_tree().create_timer(respawntime).timeout)
-			
+			Global.Players[self.name.to_int()]["bubbles"] = 0;
+
 			dead = false
 			self.visible = true
-			Global.p1_player_hp = 100
-			Global.p1_player_bubbles = 0
+			Global.Players[self.name.to_int()]["hp"] = 100
 			self.global_position = spawn_location
-			
 			await(get_tree().create_timer(2).timeout)
 			
-			Global.p1_invunerable = false
+			Global.Players[self.name.to_int()]["invulnerable"] = false;
 	
 
 func _on_hitbox_body_entered(body):
 	in_damage = true
 	$DamageTimer.start()
-	if Global.p1_invunerable == false:
-		Global.p1_player_hp -= 10
+	if Global.Players[self.name.to_int()]["invulnerable"] == false:
+		Global.Players[self.name.to_int()]["hp"] -= 10
 
 
 func _on_hitbox_body_exited(body):
@@ -180,8 +171,8 @@ func _on_hitbox_body_exited(body):
 
 func _on_damage_timer_timeout():
 	if in_damage == true:
-		if Global.p1_invunerable == false:
-			Global.p1_player_hp -= 10
+		if Global.Players[self.name.to_int()]["invulnerable"] == false:
+			Global.Players[self.name.to_int()]["hp"] -= 10
 			$DamageTimer.start()
 
 
