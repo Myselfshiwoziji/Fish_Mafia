@@ -5,7 +5,7 @@ func _ready():
 	$Intromusic.play()
 
 func _on_start_game_pressed():
-	get_tree().change_scene_to_file("res://Gameplay/Mainscene.tscn")
+	get_tree().change_scene_to_file("res://Menus/MainMenu/lobby_scene.tscn")
 
 
 func _on_settings_pressed():

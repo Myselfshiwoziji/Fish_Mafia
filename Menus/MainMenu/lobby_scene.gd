@@ -54,10 +54,10 @@ func StartGame():
 	var scene = load("res://Gameplay/Mainscene.tscn").instantiate()
 	get_tree().root.add_child(scene)
 	self.hide()
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	pass;
 
 func _on_host_dropdown_pressed():
 	if $IP_host.visible != true:
@@ -102,6 +102,8 @@ func _on_host_button_pressed():
 	print("Waiting for players!")
 	SendPlayerInformation($Name.text, multiplayer.get_unique_id())
 	visible(false)
+	$JoinDropdown.visible = false;
+	$Players.text += "\n" + "Host: " + Global.Players[1]["name"]
 
 
 func _on_join_button_pressed():
@@ -111,6 +113,8 @@ func _on_join_button_pressed():
 	multiplayer.set_multiplayer_peer(peer)
 	visible(false)
 	$StartGame.visible = false
+	await(get_tree().create_timer(2).timeout)
+	$Players.text += "\n" + $Name.text
 
 func _on_start_game_pressed():
 	StartGame.rpc()

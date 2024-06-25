@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bltwgdnxndda4"]
+[gd_scene load_steps=3 format=3 uid="uid://bltwgdnxndda4"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu/lobby_scene.gd" id="1_s88wh"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_s16jd"]
+properties/0/path = NodePath("Players:text")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="LobbyScene" type="Control"]
 layout_mode = 3
@@ -100,6 +105,20 @@ offset_right = 3452.0
 offset_bottom = 685.0
 theme_override_font_sizes/font_size = 60
 placeholder_text = "Name"
+
+[node name="Players" type="Label" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 1232.0
+offset_right = 1137.0
+offset_bottom = 2151.0
+theme_override_font_sizes/font_size = 65
+text = "Current Players:"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 1.0
+delta_interval = 1.0
+replication_config = SubResource("SceneReplicationConfig_s16jd")
 
 [connection signal="pressed" from="HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="HostDropdown" to="." method="_on_host_dropdown_pressed"]
