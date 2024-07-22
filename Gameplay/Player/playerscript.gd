@@ -186,5 +186,6 @@ func _on_dash_timer_timeout():
 
 func _on_dash_duration_timeout():
 	in_dash = false
+	speed = 500
 	velocity.y = 0
 	pass # Replace with function body.
